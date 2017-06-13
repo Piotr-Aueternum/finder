@@ -29,10 +29,9 @@ module.exports = {
     extensions: ['.js'],
   },
   devServer: {
-    hot: true,
     contentBase: 'src/static',
     historyApiFallback: true,
-    host: process.env.LAN ? process.env.LAN_IP : 'localhost',
+    host: JSON.parse(process.env.LAN) ? process.env.LAN_IP : 'localhost',
   },
   plugins: [
     new webpack.DefinePlugin({
