@@ -11,6 +11,9 @@ const mapDispatchToProps = dispatch => ({
   formSubmit: (data) => {
     dispatch(updateFilters({ ...data }));
   },
+  onSubmit: (data) => {
+    dispatch(updateFilters({ ...data }));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

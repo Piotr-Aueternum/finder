@@ -1,8 +1,8 @@
 import * as c from '../constants/actions';
-
+import data from '../data';
 
 const initialState = {
-  data: [],
+  data,
   filters: {
     categories: 'cat_all',
     brands: 'brand_all',
@@ -44,7 +44,7 @@ const initialState = {
   }],
 };
 
-export default function data(state = initialState, action) {
+export default (state = initialState, action) => {
   switch (action.type) {
     case c.FETCH_DATA: {
       return { fetchig: true };
@@ -55,4 +55,4 @@ export default function data(state = initialState, action) {
     default:
       return state;
   }
-}
+};
