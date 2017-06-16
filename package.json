@@ -29,7 +29,7 @@
     "babel-preset-stage-0": "6.x",
     "babel-regenerator-runtime": "6.x",
     "babili-webpack-plugin": "^0.1.1",
-    "dotenv": "^4.0.0",
+    "dotenv": "4.x",
     "eslint": "3.x",
     "eslint-config-airbnb": "14.x",
     "eslint-loader": "1.x",
