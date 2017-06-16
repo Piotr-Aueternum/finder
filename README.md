@@ -8,6 +8,7 @@ Searching data from API with React
   ```
 
 # Development
+  If you want to run this on LAN host, please set up data in config(.dotenv) `LAN` to your workstation IPv4(`xxx.xxx.xxx.xxx`).
   ```
   npm run dev
   ```

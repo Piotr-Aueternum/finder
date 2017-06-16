@@ -1,6 +1,8 @@
 import * as c from '../constants/actions';
 
-export default payload => ({
-  type: c.FETCH_STATS,
+export const updateFilters = payload => ({
+  type: c.UPDATE_FILTERS,
   payload,
 });
+
+export default updateFilters;

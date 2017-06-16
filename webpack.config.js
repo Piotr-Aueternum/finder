@@ -10,14 +10,6 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-        'sass-loader',
-      ],
-    },
-    {
       test: /\.js$/,
       use: [
         'babel-loader',
@@ -31,7 +23,7 @@ module.exports = {
   devServer: {
     contentBase: 'src/static',
     historyApiFallback: true,
-    host: JSON.parse(process.env.LAN) ? process.env.LAN_IP : 'localhost',
+    host: process.env.LAN ? process.env.LAN : 'localhost',
   },
   plugins: [
     new webpack.DefinePlugin({

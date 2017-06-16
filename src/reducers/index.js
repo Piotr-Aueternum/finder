@@ -1,21 +1,56 @@
 import * as c from '../constants/actions';
 
-/**
- * @param {object} state
- * @param {object} action
- * @returns {object}
- */
-export default function data(state = {
+
+const initialState = {
   data: [],
-  fetching: false,
-  fetched: false,
-}, action) {
+  filters: {
+    categories: 'cat_all',
+    brands: 'brand_all',
+  },
+  inputs: [{
+    name: 'categories',
+    options: [
+      {
+        value: 'cat_all',
+        label: 'All categories',
+      }, {
+        value: 'cat_a',
+        label: 'Category A',
+      }, {
+        value: 'cat_b',
+        label: 'Category B',
+      }, {
+        value: 'cat_c',
+        label: 'Category C',
+      },
+    ],
+  }, {
+    name: 'brands',
+    options: [
+      {
+        value: 'brand_all',
+        label: 'All brands',
+      }, {
+        value: 'brand_a',
+        label: 'Brand A',
+      }, {
+        value: 'brand_b',
+        label: 'Brand B',
+      }, {
+        value: 'brand_c',
+        label: 'Brand C',
+      },
+    ],
+  }],
+};
+
+export default function data(state = initialState, action) {
   switch (action.type) {
     case c.FETCH_DATA: {
       return { fetchig: true };
     }
-    case c.FETCHED_DATA: {
-      return { data: action.payload, fetching: false, fetched: true };
+    case c.UPDATE_FILTERS: {
+      return { ...state, filters: { ...state.filters, ...action.payload } };
     }
     default:
       return state;

@@ -1,2 +1,2 @@
-export const FETCH_ASYNC_DATA = Symbol('FETCH_ASYNC_DATA');
-export const FETCH_DATA = Symbol('FETCH_DATA');
+export const UPDATE_FILTERS = Symbol('UPDATE_FILTERS');
+export default UPDATE_FILTERS;
