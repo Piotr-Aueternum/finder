@@ -1,11 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Select from './Select';
+import media from '../style-utils';
+
+const Form = styled.form`
+  border-bottom: 1px solid #aaa;
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Heading = styled.h1`
+  width: 100%;
+  font-size: 1.25em;
+`;
+
+const Input = styled.input.attrs({
+  type: 'text',
+})`
+  width: 50%;
+  ${media.tablet`
+    width: 100%;
+  `}
+`;
 
 export default class extends React.Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
-    inputs: PropTypes.arrayOf(PropTypes.object).isRequired,
+    selects: PropTypes.arrayOf(PropTypes.object).isRequired,
     formSubmit: PropTypes.func.isRequired,
   }
   constructor(props) {
@@ -22,7 +46,7 @@ export default class extends React.Component {
   onInputChange(e) {
     const { name, value } = e.target;
     const { data } = this.state;
-    this.setState({ data: { ...data, [name]: value }, timer: 5 });
+    this.setState({ data: { ...data, [name]: value }, timer: 3 });
     clearTimeout(this.countdown);
     this.tick();
   }
@@ -48,12 +72,12 @@ export default class extends React.Component {
   }
   render() {
     const { onSelectChange, onInputChange } = this;
-    const { onSubmit, inputs } = this.props;
+    const { onSubmit, selects } = this.props;
     return (
-      <form onSubmit={e => onSubmit(e)}>
-        <h1>Filter Panel</h1>
-        <input type="text" name="query" placeholder="Case sensitive name filter" onChange={e => onInputChange(e)} />
-        {inputs.map((item, key) => (
+      <Form onSubmit={e => onSubmit(e)}>
+        <Heading>Filter Panel</Heading>
+        <Input name="query" placeholder="Case sensitive name filter" onChange={e => onInputChange(e)} />
+        {selects.map((item, key) => (
           <Select
             key={key}
             name={item.name}
@@ -61,7 +85,7 @@ export default class extends React.Component {
             onChange={e => onSelectChange(e)}
           />
         ))}
-      </form>
+      </Form>
     );
   }
 }

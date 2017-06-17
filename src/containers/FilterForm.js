@@ -3,7 +3,7 @@ import { updateFilters } from '../actions';
 import Form from '../components/Form';
 
 const mapStateToProps = state => ({
-  inputs: state.inputs,
+  selects: state.selects,
 });
 
 

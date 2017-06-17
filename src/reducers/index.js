@@ -6,8 +6,9 @@ const initialState = {
   filters: {
     categories: 'cat_all',
     brands: 'brand_all',
+    query: '',
   },
-  inputs: [{
+  selects: [{
     name: 'categories',
     options: [
       {
